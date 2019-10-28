@@ -8,9 +8,10 @@
 # https://docs.python.org/3/library/socket.html#socket.socket.send
 # https://docs.python.org/3/library/socket.html#socket.close
 
-HOST = '192.168.1.100'
+HOST = '192.168.1.103'
 PORT = [39681, 34249][0]
 
+#sample = b"Everton legalzinhoEnd of TCPIP text#\r\nFrom=Desenvolvedor#\r\nSentBy=ODYCRUZ-PC#\r\nStayOnTop=Yes#\r\nHasBorder=Yes#\r\nBkColor=10485759#\r\nFoColor=0#\r\nTiBkColor=7340031#\r\nTiFoColor=0#\r\nX=853#\r\nY=397#\r\nWidth=203#\r\nHeight=171#\r\nSponsored=#\r\nLFHEIGHT=-13#\r\nLFWIDTH=0#\r\nLFESCAPEME=0#\r\nLFORIENTAT=0#\r\nLFWEIGHT=400#\r\nLFITALIC=0#\r\nLFUNDERLIN=0#\r\nLFSTRIKEOU=0#\r\nLFCHARSET=0#\r\nLFOUTPRECI=3#\r\nLFCLIPPREC=2#\r\nLFQUALITY=1#\r\nLFPITCHAND=22#\r\nLFFACENAME=Arial#\r\nLFHEIGHTTI=-13#\r\nLFWIDTHTI=0#\r\nLFESCAPETI=0#\r\nLFORIENTTI=0#\r\nLFWEIGHTTI=700#\r\nLFITALICTI=0#\r\nLFUNDERLTI=0#\r\nLFSTRIKETI=0#\r\nLFCHARSETI=0#\r\nLFOUTPRETI=3#\r\nLFCLIPPRTI=2#\r\nLFQUALITTI=1#\r\nLFPITCHTI=12#\r\nLFFACENATI=Times New Roman#\r\nSZTITLE=#\r\nALARMTIME=#\r\nRECURRINGALARMTYPE=#\r\nRECURRINGALARMVALUE=#\r\nROLLUP=#\r\n"
 vText                = b"Everton chatinho e legalzinho"
 vFrom                = b"Desenvolvedor"
 vSentBy              = b"ODYCRUZ-PC"
@@ -112,20 +113,3 @@ tcp = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
 tcp.connect( ( HOST, PORT ) )
 tcp.send ( data )
 tcp.close()
-
-
-## https://docs.python.org/3/library/socket.html
-#import socket
-## https://docs.python.org/3/library/socket.html#socket.socket
-## https://docs.python.org/3/library/socket.html#constants
-#tcp = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
-## https://docs.python.org/3/library/socket.html#socket.socket.connect
-#tcp.connect( ( HOST, PORT ) )
-## https://docs.python.org/3/library/functions.html#func-bytearray
-## https://docs.python.org/3/library/stdtypes.html#binaryseq
-##bytes = b"Everton LindoEnd of TCPIP text#\r\nFrom=Desenvolvedor#\r\nSentBy=ODYCRUZ-PC#\r\nStayOnTop=Yes#\r\nHasBorder=Yes#\r\nBkColor=10485759#\r\nFoColor=0#\r\nTiBkColor=7340031#\r\nTiFoColor=0#\r\nX=853#\r\nY=397#\r\nWidth=203#\r\nHeight=171#\r\nSponsored=#\r\nLFHEIGHT=-13#\r\nLFWIDTH=0#\r\nLFESCAPEME=0#\r\nLFORIENTAT=0#\r\nLFWEIGHT=400#\r\nLFITALIC=0#\r\nLFUNDERLIN=0#\r\nLFSTRIKEOU=0#\r\nLFCHARSET=0#\r\nLFOUTPRECI=3#\r\nLFCLIPPREC=2#\r\nLFQUALITY=1#\r\nLFPITCHAND=22#\r\nLFFACENAME=Arial#\r\nLFHEIGHTTI=-13#\r\nLFWIDTHTI=0#\r\nLFESCAPETI=0#\r\nLFORIENTTI=0#\r\nLFWEIGHTTI=700#\r\nLFITALICTI=0#\r\nLFUNDERLTI=0#\r\nLFSTRIKETI=0#\r\nLFCHARSETI=0#\r\nLFOUTPRETI=3#\r\nLFCLIPPRTI=2#\r\nLFQUALITTI=1#\r\nLFPITCHTI=12#\r\nLFFACENATI=Times New Roman#\r\nSZTITLE=#\r\nALARMTIME=#\r\nRECURRINGALARMTYPE=#\r\nRECURRINGALARMVALUE=#\r\nROLLUP=#\r\n"
-#bytes = b"Everton LindoEnd of TCPIP text#\r\nFrom=Desenvolvedor#\r\nSentBy=ODYCRUZ-PC#\r\nStayOnTop=Yes#\r\nHasBorder=Yes#\r\nBkColor=10485759#\r\nFoColor=0#\r\nTiBkColor=7340031#\r\nTiFoColor=0#\r\nX=853#\r\nY=397#\r\nWidth=203#\r\nHeight=171#\r\nSponsored=#\r\nLFHEIGHT=-13#\r\nLFWIDTH=0#\r\nLFESCAPEME=0#\r\nLFORIENTAT=0#\r\nLFWEIGHT=400#\r\nLFITALIC=0#\r\nLFUNDERLIN=0#\r\nLFSTRIKEOU=0#\r\nLFCHARSET=0#\r\nLFOUTPRECI=3#\r\nLFCLIPPREC=2#\r\nLFQUALITY=1#\r\nLFPITCHAND=22#\r\nLFFACENAME=Arial#\r\nLFHEIGHTTI=-13#\r\nLFWIDTHTI=0#\r\nLFESCAPETI=0#\r\nLFORIENTTI=0#\r\nLFWEIGHTTI=700#\r\nLFITALICTI=0#\r\nLFUNDERLTI=0#\r\nLFSTRIKETI=0#\r\nLFCHARSETI=0#\r\nLFOUTPRETI=3#\r\nLFCLIPPRTI=2#\r\nLFQUALITTI=1#\r\nLFPITCHTI=12#\r\nLFFACENATI=Times New Roman#\r\nSZTITLE=#\r\nALARMTIME=#\r\nRECURRINGALARMTYPE=#\r\nRECURRINGALARMVALUE=#\r\nROLLUP=#\r\n"
-## https://docs.python.org/3/library/socket.html#socket.socket.send
-#tcp.send ( bytes )
-## https://docs.python.org/3/library/socket.html#socket.close
-#tcp.close()
