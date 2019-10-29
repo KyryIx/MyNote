@@ -8,13 +8,13 @@
 # https://docs.python.org/3/library/socket.html#socket.socket.send
 # https://docs.python.org/3/library/socket.html#socket.close
 
-HOST = '192.168.1.103'
+HOST = '192.168.1.102'
 PORT = [39681, 34249][0]
 
 #sample = b"Everton legalzinhoEnd of TCPIP text#\r\nFrom=Desenvolvedor#\r\nSentBy=ODYCRUZ-PC#\r\nStayOnTop=Yes#\r\nHasBorder=Yes#\r\nBkColor=10485759#\r\nFoColor=0#\r\nTiBkColor=7340031#\r\nTiFoColor=0#\r\nX=853#\r\nY=397#\r\nWidth=203#\r\nHeight=171#\r\nSponsored=#\r\nLFHEIGHT=-13#\r\nLFWIDTH=0#\r\nLFESCAPEME=0#\r\nLFORIENTAT=0#\r\nLFWEIGHT=400#\r\nLFITALIC=0#\r\nLFUNDERLIN=0#\r\nLFSTRIKEOU=0#\r\nLFCHARSET=0#\r\nLFOUTPRECI=3#\r\nLFCLIPPREC=2#\r\nLFQUALITY=1#\r\nLFPITCHAND=22#\r\nLFFACENAME=Arial#\r\nLFHEIGHTTI=-13#\r\nLFWIDTHTI=0#\r\nLFESCAPETI=0#\r\nLFORIENTTI=0#\r\nLFWEIGHTTI=700#\r\nLFITALICTI=0#\r\nLFUNDERLTI=0#\r\nLFSTRIKETI=0#\r\nLFCHARSETI=0#\r\nLFOUTPRETI=3#\r\nLFCLIPPRTI=2#\r\nLFQUALITTI=1#\r\nLFPITCHTI=12#\r\nLFFACENATI=Times New Roman#\r\nSZTITLE=#\r\nALARMTIME=#\r\nRECURRINGALARMTYPE=#\r\nRECURRINGALARMVALUE=#\r\nROLLUP=#\r\n"
-vText                = b"Everton chatinho e legalzinho"
-vFrom                = b"Desenvolvedor"
-vSentBy              = b"ODYCRUZ-PC"
+vText                = bytes( 'Everton chatinho e legalzinho\r\nOla mundo novo de esperança.', 'ansi' )
+vFrom                = bytes( 'Desenvolvedor', 'ansi' )
+vSentBy              = bytes( 'ODYCRUZ-PC', 'ansi' )
 vStayOnTop           = b"Yes"                   #             (manter note no top): campo vazio (nao) ou Yes (sim)
 vHasBorder           = b"Yes"                   #                  (borda no note): campo vazio (nao) ou Yes (sim)
 vBkColor             = b"16711680"              #           (cor de fundo do note): R + G * 16^2 + B * 16^4 [255 (vermelho puro) / 65280=255*16^2 (verde puro) / 16711680=255*16^4 (azul puro)]
@@ -39,7 +39,7 @@ vLFOUTPRECI          = b"3"
 vLFCLIPPREC          = b"2"
 vLFQUALITY           = b"1"
 vLFPITCHAND          = b"22"
-vLFFACENAME          = b"Times New Roman"       #(fonte do corpo do texto): Symbol/Arial/Times New Roman/Calibri/...
+vLFFACENAME          = bytes( 'Times New Roman', 'ansi' ) #(fonte do corpo do texto): Symbol/Arial/Times New Roman/Calibri/...
 vLFHEIGHTTI          = b"-13"
 vLFWIDTHTI           = b"0"
 vLFESCAPETI          = b"0"
@@ -53,8 +53,8 @@ vLFOUTPRETI          = b"3"
 vLFCLIPPRTI          = b"2"
 vLFQUALITTI          = b"1"
 vLFPITCHTI           = b"12"
-vLFFACENATI          = b"Calibri"               #(fonte do titulo): Calibri
-vSZTITLE             = b"Estamos em teste ;)"   #(texto na barra de titulo): Estamos em teste ;)
+vLFFACENATI          = bytes( 'Calibri', 'ansi' )               #(fonte do titulo): Calibri
+vSZTITLE             = bytes( 'É, Estamos em teste ;)', 'ansi' )#(texto na barra de titulo): Estamos em teste ;)
 vALARMTIME           = b"2019,10,27,1,50"       #(data e horario do alarme): vazio eh desativado ou "ano,mes,dia,hora,minuto"
 vRECURRINGALARMTYPE  = b"5"                     #(unidade de medida): 1-minutos, 2-horas, 3-dias, 4-semanas, 5-meses
 vRECURRINGALARMVALUE = b"10"                    #(valor de minutos/horas/dias/meses ou anos):

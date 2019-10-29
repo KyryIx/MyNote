@@ -11,6 +11,7 @@
 # https://docs.python.org/3/library/string.html
 # https://docs.python.org/3/library/stdtypes.html#str.splitlines
 # https://docs.python.org/3/library/stdtypes.html#str.split
+# https://docs.python.org/3/library/stdtypes.html#str.rsplit
 # https://docs.python.org/3.8/tutorial/datastructures.html#dictionaries
 # https://doc.qt.io/qtforpython/PySide2/QtWidgets/
 # https://doc.qt.io/qtforpython/PySide2/QtWidgets/QApplication.html
@@ -23,15 +24,13 @@ import sys
 from PySide2 import QtCore, QtWidgets, QtGui
 
 def getValues( msg ):
-	text = msg.decode( "utf-8" )
-	array = text.splitlines()
+	array = msg.decode( "ansi" ).rsplit( '#\r\n', 47 )
 	values  = {}
-	values['Text'] = array[0][:-18]
-	array   = array[1:]
+	values['Text'] = array[0][:-17]
+	array   = array[1:-1]
 	for value in array:
-		txt = value[:-1]
-		tmp = txt.split( '=' )
-		values[tmp[0]] = tmp[1]
+		tmp = value.split( '=' )
+		values[ tmp[0] ] = tmp[1]
 	return values
 
 class MyNote( QtWidgets.QWidget ):
@@ -50,7 +49,8 @@ class MyNote( QtWidgets.QWidget ):
 		self.text.setTextColor( QtGui.QColor(color[0], color[1], color[2]) )
 		self.text.setText( text )
 
-def myApp():
+def myApp( msg ):
+	# FALTA RESOLVER O PROBLEMA DE MULTIPLAS INSTANCIAS DE MyApp
 	app    = QtWidgets.QApplication([])
 	widget = MyNote()
 	values = getValues( msg )
@@ -59,9 +59,9 @@ def myApp():
 	widget.setContent( font='Arial', text=values['Text'], color=[255,0,0] )
 	widget.show()
 	app.exec_()
-	#sys.exit(app.exec_())
+	##sys.exit(app.exec_())
 
-HOST = '192.168.1.103'
+HOST = '192.168.1.102'
 PORT = [39681, 34249][0]
 
 tcp = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
@@ -75,6 +75,6 @@ while True:
 		if not msg:
 			break
 		#print( cliente, msg )
-		myApp()
+		myApp( msg )
 	#print( 'Finalizando conexao do cliente', cliente )
 	con.close()
